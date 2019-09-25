@@ -6,5 +6,15 @@ pull_request_rules:
     actions:
       backport:
         branches:
-          - stable
+          - stage
           - dev
+
+  - name: automatic merge on CircleCI success
+    conditions:
+      - "status-success=ci/circleci: validate"
+      - base=dev
+    actions:
+      label:
+        add: backport
+      merge:
+        method: merge
