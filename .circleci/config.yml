@@ -4,7 +4,8 @@ jobs:
     branches:
       only:
         - master
-        
+        - dev
+
     docker:
       - image: debian:stretch
 
