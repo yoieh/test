@@ -8,3 +8,11 @@ pull_request_rules:
         branches:
           - stable
           - dev
+
+  - name: automatic merge on CircleCI success
+    conditions:
+      - "status-success=ci/circleci: validate"
+      - base=master
+    actions:
+      merge:
+        method: merge
